@@ -1,0 +1,36 @@
+# Importing and Exporting
+
+## Two ways of importing and exporting
+- named
+- default
+- you can have a default and name export in one file
+- you can't have more than one default export i one file
+- Named is prefered because you can export multiple things
+![alt text](image.png)
+
+example
+![alt text](image-1.png)
+
+### Renaming
+- use as to rename (not needed for default exports)
+![alt text](image-2.png)
+
+- only make a file extension jsx if the file has components
+
+
+# Hook functions
+- React reacts to special variables called hook variables
+-  Hook is a function
+-  uses the keyword "use"
+
+### UseState
+- general syntax
+-  let [state , setState] = useState(Initial_Value)
+-  state- current value of component
+-  setState-fn updates the state
+![alt text](image-3.png)
+
+
+###
+- Component is a function state
+- C= f(s)- State change component re-renders(when update happens it re-draws everything)

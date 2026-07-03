@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Movie } from "./Movie";
 
-// Task: Create MovieList
 export function MovieList() {
-  const movies = [
+   const movies = [
     {
       name: "Vikram",
       poster: "https://upload.wikimedia.org/wikipedia/en/9/93/Vikram_2022_poster.jpg",
@@ -70,11 +70,73 @@ export function MovieList() {
       rating: 8.8,
     },
   ];
+
+  const [moviesList, setMoviesList] = useState(movies);
+
+  const [movie, setMovie] = useState({
+    name: "",
+    poster: "",
+    rating: "",
+    summary: "",
+  });
+
   return (
-    <section>
-      {movies.map(({ name, poster, summary, rating }) => (
-        <Movie name={name} poster={poster} summary={summary} rating={rating} />
-      ))}
-    </section>
+    <main>
+      <section>
+        <input
+          type="text"
+          placeholder="Name"
+          onChange={(event) =>
+            setMovie({ ...movie, name: event.target.value })
+          }
+        />
+
+        <input
+          type="text"
+          placeholder="Poster"
+          onChange={(event) =>
+            setMovie({ ...movie, poster: event.target.value })
+          }
+        />
+
+        <input
+          type="text"
+          placeholder="Rating"
+          onChange={(event) =>
+            setMovie({
+              ...movie,
+              rating: +(event.target.value),
+            })
+          }
+        />
+
+        <input
+          type="text"
+          placeholder="Summary"
+          onChange={(event) =>
+            setMovie({ ...movie, summary: event.target.value })
+          }
+        />
+
+        <button
+          onClick={() => {
+            setMoviesList([...moviesList, movie]);
+          }}
+        >
+          Add Movie
+        </button>
+      </section>
+
+      <section>
+        {moviesList.map(({ name, poster, summary, rating }) => (
+          <Movie
+            name={name}
+            poster={poster}
+            summary={summary}
+            rating={rating}
+          />
+        ))}
+      </section>
+    </main>
   );
 }
