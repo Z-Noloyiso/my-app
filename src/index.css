@@ -25,13 +25,21 @@
   }
 }
 
+
+.movies-container{
+  display:flex;
+  font-style: column;
+  flex-wrap: wrap;
+   gap:1rem;
+}
+
 .movie-container {
  
   width: 20rem;
   display:flex;
   flex-direction: column;
   padding:1rem;
-  gap:0.5rem;
+ 
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 0.5rem;
   text-align: start;
@@ -84,4 +92,11 @@ section{
 
 .summary-toggle{
   width:10rem;
+}
+
+.nav{
+    list-style: none;
+    display: flex;
+    gap:0.5rem;
+  
 }

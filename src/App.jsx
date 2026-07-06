@@ -1,34 +1,54 @@
 //noloyiso 
 
 import "./index.css";
-import { MovieList } from "./movie/MovieList";
-import { UserList } from "./user/UserList";
+import { MovieList } from "./pages/MovieList";
+import { UserList } from "./pages/UserList";
 import { Counter } from "./concepts/Counter";
 import {ColorGame} from "./color-game/ColorGame";
-import { Routes, Route } from "react-router";
+import { Routes, Route , Navigate} from "react-router";
+import { useState } from "react";
 import { NavLink } from "react-router";
+import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
+import { AddMovie } from "./pages/AddMovie";
+import { INITIAL_MOVIES } from "./movie/INITIAL_MOVIES";
 
 // Default export (only one per file)
 export default function App() {
   const names = ["Staesha", "Lauren", "Zulu", "Nolo"];
+   const [moviesList, setMoviesList] = useState(INITIAL_MOVIES);
   // Array Strings -> Array of JSX (Transform)
 
   return (
     // JSX starts
     <div className="App">
-       <h2>Welcome to the App</h2>
       {/* a - will refresh */}
       {/* <a href="/about">About with a</a> | <a href="/contact">Contact with a</a>|{" "} */}
       {/* 3. Navigation */}
-      <NavLink to="/movie/MovieList"> Movies </NavLink> |
-      <NavLink to="/user/UserList"> User    </NavLink>    |
-      <NavLink to="/color-game/ColorGame"> ColorGame </NavLink>
+      <header>
+      <nav>
+      <ul className="nav">
+        <li><NavLink to="/"> Home </NavLink> </li>
+      <li><NavLink to="/movies"> Movies </NavLink> </li>
+      <li> <NavLink to="/users"> User    </NavLink>    </li>
+      <li><NavLink to="/color-game"> Color Game </NavLink> </li>
+      <li><NavLink to="/movies/add"> Add movie </NavLink> </li>
+      
+      </ul>
+      </nav>
+      </header>
 
       {/* 2. Matching */}
       <Routes>
-      <Route path="/movie/MovieList" element={<MovieList/>} />
-      <Route path="/user/UserList" element={<UserList/>} />
-      <Route path="/color-game/ColorGame" element={<ColorGame/>} />
+      <Route path="/" element={<Home/>} />
+
+      {/** redirection if you changed the link you must redirect user to the new link */}
+      <Route path="/films" element={<Navigate replace to="/movies"/>} />
+      <Route path="/movies" element={<MovieList moviesList={moviesList}/>} />
+      <Route path="/users" element={<UserList/>} />
+      <Route path="/color-game" element={<ColorGame/>} />
+      <Route path="/movies/add" element={<AddMovie moviesList={moviesList} setMoviesList={setMoviesList}/>} />
+      <Route path="/*" element={<NotFound/>} />
       </Routes>
 
       
