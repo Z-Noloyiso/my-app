@@ -16,7 +16,9 @@ import { INITIAL_MOVIES } from "./movie/INITIAL_MOVIES";
 // Default export (only one per file)
 export default function App() {
   const names = ["Staesha", "Lauren", "Zulu", "Nolo"];
-   const [moviesList, setMoviesList] = useState(INITIAL_MOVIES);
+
+  //Lifting the state up: done when you want to share data between siblings
+  const [moviesList, setMoviesList] = useState(INITIAL_MOVIES);
   // Array Strings -> Array of JSX (Transform)
 
   return (
@@ -28,7 +30,7 @@ export default function App() {
       <header>
       <nav>
       <ul className="nav">
-        <li><NavLink to="/"> Home </NavLink> </li>
+      <li><NavLink to="/"> Home </NavLink> </li>
       <li><NavLink to="/movies"> Movies </NavLink> </li>
       <li> <NavLink to="/users"> User    </NavLink>    </li>
       <li><NavLink to="/color-game"> Color Game </NavLink> </li>

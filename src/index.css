@@ -100,3 +100,11 @@ section{
     gap:0.5rem;
   
 }
+
+.add-movie-form{
+  display:flex;
+  flex-direction: column;
+  gap:1rem;
+  max-width: 20rem;
+  margin:0 auto;
+}
