@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ColorBox } from "./ColorBox";
 
 // Task - Clue: Hook & Conditional Styling
-function ColorGame() {
+export function ColorGame() {
   const [color, setColor] = useState("orange");
   const styles = {
     background: color,

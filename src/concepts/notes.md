@@ -34,3 +34,10 @@ example
 ###
 - Component is a function state
 - C= f(s)- State change component re-renders(when update happens it re-draws everything)
+
+
+##  Routing
+- Its essentially conditional rendering
+https://reactrouter.com/start/declarative/installation 
+![alt text](image-4.png)
+https://codesandbox.io/p/sandbox/fhwhc4?file=%2Fsrc%2FApp.js%3A15%2C50
