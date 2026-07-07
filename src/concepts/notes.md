@@ -30,6 +30,13 @@ example
 -  setState-fn updates the state
 ![alt text](image-3.png)
 
+### useNavigate
+- Use it when you want to change url on click of a buttion
+
+### useParams
+![alt text](image-5.png)
+
+
 
 ###
 - Component is a function state
@@ -42,6 +49,10 @@ https://reactrouter.com/start/declarative/installation
 ![alt text](image-4.png)
 https://codesandbox.io/p/sandbox/fhwhc4?file=%2Fsrc%2FApp.js%3A15%2C50
 
+
+### Dyanamic routing
+![alt text](image-8.png)
+
 ## Components from google
 [Click here](https://mui.com/material-ui/)
 
@@ -52,3 +63,6 @@ https://codesandbox.io/p/sandbox/fhwhc4?file=%2Fsrc%2FApp.js%3A15%2C50
 - Comparing + updating =reconciliation
 - Comparing= diffing
 - Diffing is faster if you give each element a  key
+- Hooks update the virtual DOM
+
+

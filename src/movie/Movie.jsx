@@ -3,6 +3,7 @@ import { useState } from "react";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import { useNavigate } from "react-router";
 
 export default function ClickAway() {
   const [open, setOpen] = React.useState(false);
@@ -48,7 +49,7 @@ export default function ClickAway() {
 
 }
 
-export function Movie({ name, poster, summary, rating }) {
+export function Movie({ name, poster, summary, rating, id }) {
    
   let [show, setShow] = useState(false);
   const summaryStyle={
@@ -81,7 +82,7 @@ export function Movie({ name, poster, summary, rating }) {
     boxShadow: 3,
     borderRadius: 1
   };
-  
+  const navigate=useNavigate();
   
   return (
     <div className="movie-container">
@@ -98,6 +99,15 @@ export function Movie({ name, poster, summary, rating }) {
           <button className="summary-toggle" type="button" onClick={handleClick}>
             💡Toggle Summary
           </button>
+
+
+
+          <button onClick={()=> navigate(`/movies/${id}`)}>Info</button>
+
+
+
+
+
 
           {open ? (
             <Box sx={dropdownStyles} className="movie-summary">

@@ -33,7 +33,7 @@ export function ColorGame() {
       </button>
 
       {colorList.map((clr, index) => (
-        <ColorBox clr={clr} deleteClr={() => deleteColor(index)} />
+        <ColorBox clr={clr} key={index} deleteClr={() => deleteColor(index)} />
       ))}
     </div>
   );

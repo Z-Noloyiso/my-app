@@ -5,7 +5,7 @@ import { MovieList } from "./pages/MovieList";
 import { UserList } from "./pages/UserList";
 import { Counter } from "./concepts/Counter";
 import {ColorGame} from "./color-game/ColorGame";
-import { Routes, Route , Navigate} from "react-router";
+import { Routes, Route , Navigate, useParams} from "react-router";
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { Home } from "./pages/Home";
@@ -56,12 +56,26 @@ export default function App() {
       <Route path="/color-game" element={<ColorGame/>} />
       <Route path="/movies/add" element={<AddMovie moviesList={moviesList} setMoviesList={setMoviesList}/>} />
       <Route path="/*" element={<NotFound/>} />
+      {/* : makes it a variable */}
+      <Route path="/movies/:id" element={<MovieDetails moviesList={moviesList}/>} />
       </Routes>
 
       
     </div>
     // JSX ends
   );
+}
+
+
+
+function MovieDetails({moviesList}){
+  const {id} =useParams();
+  return (
+
+    <div>
+      <h1> {moviesList[id].name} - {id}</h1>
+    </div>
+  )
 }
 
 

@@ -22,8 +22,8 @@ export function UserList() {
   ];
   return (
     <section>
-      {users.map(({ name, pic }) => (
-        <User name={name} pic={pic} />
+      {users.map(({ name, pic }, index) => (
+        <User name={name} pic={pic} key={index}/>
       ))}
     </section>
   );

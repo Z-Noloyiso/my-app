@@ -14,12 +14,14 @@ export function MovieList({ moviesList}) {
       <section>
 
         <div className="movies-container">
-        {moviesList.map(({ name, poster, summary, rating }) => (
+        {moviesList.map(({ name, poster, summary, rating }, index) => (
           <Movie
             name={name}
             poster={poster}
             summary={summary}
             rating={rating}
+            key={index}
+            id={index}
           />
         ))}
         </div>
