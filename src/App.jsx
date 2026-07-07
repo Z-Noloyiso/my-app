@@ -1,11 +1,9 @@
 //noloyiso 
-
 import "./index.css";
 import { MovieList } from "./pages/MovieList";
 import { UserList } from "./pages/UserList";
-import { Counter } from "./concepts/Counter";
 import {ColorGame} from "./color-game/ColorGame";
-import { Routes, Route , Navigate, useParams} from "react-router";
+import { Routes, Route , Navigate} from "react-router";
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { Home } from "./pages/Home";
@@ -17,6 +15,7 @@ import MovieIcon from '@mui/icons-material/Movie';
 import PersonIcon from '@mui/icons-material/Person';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import AddIcon from '@mui/icons-material/Add';
+import { MovieDetails } from "./pages/MovieDetails";
 
 // Default export (only one per file)
 export default function App() {
@@ -35,11 +34,11 @@ export default function App() {
       <header>
       <nav>
       <ul className="nav">
-      <li><NavLink to="/"> <HomeIcon /> Home </NavLink> </li>
-      <li><NavLink to="/movies"><MovieIcon/> Movies </NavLink> </li>
-      <li> <NavLink to="/users"> <PersonIcon/>User    </NavLink>    </li>
-      <li><NavLink to="/color-game"><SportsEsportsIcon/> Color Game </NavLink> </li>
-      <li><NavLink to="/movies/add"><AddIcon/>Add movie </NavLink> </li>
+      <li><NavLink to="/"> <span><HomeIcon /></span>  Home </NavLink> </li>
+      <li><NavLink to="/movies"><span><MovieIcon/></span>Movies </NavLink> </li>
+      <li> <NavLink to="/users"><span><PersonIcon/></span>User    </NavLink>    </li>
+      <li><NavLink to="/color-game"><span> <SportsEsportsIcon/> </span> Color Game </NavLink> </li>
+      <li><NavLink to="/movies/add"><span><AddIcon/></span>Add movie </NavLink> </li>
       
       </ul>
       </nav>
@@ -68,14 +67,6 @@ export default function App() {
 
 
 
-function MovieDetails({moviesList}){
-  const {id} =useParams();
-  return (
 
-    <div>
-      <h1> {moviesList[id].name} - {id}</h1>
-    </div>
-  )
-}
 
 

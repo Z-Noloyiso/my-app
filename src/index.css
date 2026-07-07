@@ -7,6 +7,7 @@
 *{
   box-sizing: border-box;
 }
+
 .user-msg {
   font-size: 1.5rem;
 
@@ -100,7 +101,13 @@ section{
 .nav{
     list-style: none;
     display: flex;
-    gap:0.5rem;
+    gap:1rem;
+
+    a{
+      text-decoration: none;
+      color:black;
+    }
+    
   
 }
 
