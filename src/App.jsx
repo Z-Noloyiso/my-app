@@ -12,6 +12,11 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { AddMovie } from "./pages/AddMovie";
 import { INITIAL_MOVIES } from "./movie/INITIAL_MOVIES";
+import HomeIcon from '@mui/icons-material/Home';
+import MovieIcon from '@mui/icons-material/Movie';
+import PersonIcon from '@mui/icons-material/Person';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import AddIcon from '@mui/icons-material/Add';
 
 // Default export (only one per file)
 export default function App() {
@@ -30,11 +35,11 @@ export default function App() {
       <header>
       <nav>
       <ul className="nav">
-      <li><NavLink to="/"> Home </NavLink> </li>
-      <li><NavLink to="/movies"> Movies </NavLink> </li>
-      <li> <NavLink to="/users"> User    </NavLink>    </li>
-      <li><NavLink to="/color-game"> Color Game </NavLink> </li>
-      <li><NavLink to="/movies/add"> Add movie </NavLink> </li>
+      <li><NavLink to="/"> <HomeIcon /> Home </NavLink> </li>
+      <li><NavLink to="/movies"><MovieIcon/> Movies </NavLink> </li>
+      <li> <NavLink to="/users"> <PersonIcon/>User    </NavLink>    </li>
+      <li><NavLink to="/color-game"><SportsEsportsIcon/> Color Game </NavLink> </li>
+      <li><NavLink to="/movies/add"><AddIcon/>Add movie </NavLink> </li>
       
       </ul>
       </nav>

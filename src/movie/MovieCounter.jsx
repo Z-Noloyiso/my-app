@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 // React reacts to special variables
 // Hook variables
@@ -20,13 +22,13 @@ export function MovieCounter() {
 
   return (
     <div className="movie-counter">
-      <button onClick={() => setLike(like + 1)}>
-        👍 {like}
-      </button>
+       <ThumbUpIcon onClick={() => setLike(like + 1)          }/>
+         {like}
+    
 
-      <button onClick={() => setDislike(dislike + 1)}>
-        👎 {dislike}
-      </button>
+      <ThumbDownIcon onClick={() => setDislike(dislike + 1)}/>
+         {dislike}
+      
     </div>
 
   );

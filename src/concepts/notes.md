@@ -44,3 +44,11 @@ https://codesandbox.io/p/sandbox/fhwhc4?file=%2Fsrc%2FApp.js%3A15%2C50
 
 ## Components from google
 [Click here](https://mui.com/material-ui/)
+
+## Virtual DOM (VDOM)
+- It's a copy of the real DOM which is a big object
+- Batch all the updates on the virtual DOM and then patch only the updates to the Real DOM
+- Updating on the REAL DOM is expensive because everytime you touch any element the other elements are affected so  thats why you update on VDOM, compae what has changed and only update the changes on the  real DOM
+- Comparing + updating =reconciliation
+- Comparing= diffing
+- Diffing is faster if you give each element a  key
