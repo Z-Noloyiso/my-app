@@ -1,5 +1,5 @@
 //Nolo
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { Movie } from "../movie/Movie";
 import { AddMovie } from "./AddMovie";
 import { INITIAL_MOVIES } from "../movie/INITIAL_MOVIES";
@@ -8,7 +8,17 @@ import { INITIAL_MOVIES } from "../movie/INITIAL_MOVIES";
 
 
 
-export function MovieList({ moviesList}) {
+export function MovieList() {
+
+    const [moviesList, setMoviesList] = useState([]);
+
+     useEffect(() => {
+    fetch("https://6a4ceefee1cf82a4a17dd0d6.mockapi.io/movies")
+      .then((res) => res.json())
+      .then((data) => setMoviesList(data));
+  }, []);
+
+   
   return (
     <main>
       <section>

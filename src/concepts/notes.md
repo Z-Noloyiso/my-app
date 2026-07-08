@@ -66,3 +66,13 @@ https://codesandbox.io/p/sandbox/fhwhc4?file=%2Fsrc%2FApp.js%3A15%2C50
 - Hooks update the virtual DOM
 
 
+## Creating a mock API
+[Click here](https://mockapi.io/projects/6a4ceefee1cf82a4a17dd0d7)
+
+
+# HTTP methods
+- POST : create
+- GET : Read
+- PUT : update
+- DELETE : delete
+![alt text](image-9.png)
