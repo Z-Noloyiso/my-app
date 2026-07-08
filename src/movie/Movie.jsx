@@ -49,7 +49,7 @@ export default function ClickAway() {
 
 }
 
-export function Movie({ name, poster, summary, rating, id }) {
+export function Movie({ name, poster, summary, rating, id , deleteBtn}) {
    
   let [show, setShow] = useState(false);
   const summaryStyle={
@@ -118,6 +118,7 @@ export function Movie({ name, poster, summary, rating, id }) {
         </Box>
       </ClickAwayListener>
       <MovieCounter/>
+      {deleteBtn}
       
     </div>
   );

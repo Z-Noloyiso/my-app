@@ -76,3 +76,15 @@ https://codesandbox.io/p/sandbox/fhwhc4?file=%2Fsrc%2FApp.js%3A15%2C50
 - PUT : update
 - DELETE : delete
 ![alt text](image-9.png)
+
+
+## Components
+There are 2 types of components
+- functional components
+- class components
+
+Lifecycle of component
+![alt text](image-10.png)
+
+
+### Passing JSX as prop
