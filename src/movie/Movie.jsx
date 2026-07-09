@@ -1,9 +1,15 @@
 import { MovieCounter } from "./MovieCounter";
 import { useState } from "react";
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { useNavigate } from "react-router";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
+import DeleteIcon from "@mui/icons-material/Delete";
+import InfoIcon from "@mui/icons-material/Info";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 export default function ClickAway() {
   const [open, setOpen] = React.useState(false);
@@ -16,21 +22,20 @@ export default function ClickAway() {
     setOpen(false);
   };
 
-
   const styles = {
-    position: 'absolute',
+    position: "absolute",
     top: 28,
     right: 0,
     left: 0,
     zIndex: 1,
-    border: '1px solid',
+    border: "1px solid",
     p: 1,
-    bgcolor: 'background.paper',
+    bgcolor: "background.paper",
   };
 
-   return (
+  return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <Box sx={{ position: 'relative' }}>
+      <Box sx={{ position: "relative" }}>
         <button type="button" onClick={handleClick}>
           Open menu dropdown
         </button>
@@ -42,84 +47,64 @@ export default function ClickAway() {
       </Box>
     </ClickAwayListener>
   );
-
-
-
-
-
 }
 
-export function Movie({ name, poster, summary, rating, id , deleteBtn}) {
-   
+export function Movie({ name, poster, summary, rating, id, deleteBtn }) {
   let [show, setShow] = useState(false);
-  const summaryStyle={
-    display: show ? "block" : "none"
-  }
-
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
-
-  const handleClickAway = () => {
-    setOpen(false);
+  const summaryStyle = {
+    display: show ? "block" : "none",
   };
 
   const ratingStyle = {
-    color: rating >= 8 ? "green" : "red"
+    color: rating >= 8 ? "green" : "red",
   };
 
   const dropdownStyles = {
-    position: 'absolute',
-    top: '100%', 
+    position: "absolute",
+    top: "100%",
     left: 0,
     right: 0,
     zIndex: 10,
-    border: '1px solid #ccc',
+    border: "1px solid #ccc",
     p: 2,
-    bgcolor: 'background.paper',
+    bgcolor: "background.paper",
     boxShadow: 3,
-    borderRadius: 1
+    borderRadius: 1,
   };
-  const navigate=useNavigate();
-  
+  const navigate = useNavigate();
+
   return (
     <div className="movie-container">
       <img src={poster} alt={name + "'s profile pic"} />
       <div className="movie-spec-container">
         <h3 className="movie-name">{name}</h3>
-        <h3 className="movie-rating" style ={ratingStyle}> ⭐ {rating}</h3>
+        <IconButton onClick={() => setShow(!show)}>{show? <ExpandLessIcon/> : <ExpandMoreIcon/> }</IconButton>
+         <IconButton
+        onClick={() => navigate(`/movies/${id}`)}
+        aria-label={`${name} info`}
+        color="primary"
+      >
+        <InfoIcon />
+      </IconButton>
+        <h3 className="movie-rating" style={ratingStyle}>
+          {" "}
+          ⭐ {rating}
+        </h3>
       </div>
 
       
-      <ClickAwayListener onClickAway={handleClickAway}>
-        <Box sx={{ position: 'relative', display: 'inline-block', width: '100%' }}>
-          
-          <button className="summary-toggle" type="button" onClick={handleClick}>
-            💡Toggle Summary
-          </button>
+
+      {/* <IconButton onClick={() => setShow(!show)}>{show? <ExpandLessIcon/> : <ExpandMoreIcon/> }</IconButton> */}
+
+      {show ? <p className="movie-summary">{summary}</p> : null}
 
 
+     
 
-          <button onClick={()=> navigate(`/movies/${id}`)}>Info</button>
-
-
-
-
-
-
-          {open ? (
-            <Box sx={dropdownStyles} className="movie-summary">
-              {summary}
-            </Box>
-          ) : null}
-
-        </Box>
-      </ClickAwayListener>
-      <MovieCounter/>
-      {deleteBtn}
-      
+      <div className="box">
+        <MovieCounter />
+        {deleteBtn}
+      </div>
     </div>
   );
 }

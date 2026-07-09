@@ -3,17 +3,18 @@ import { useState, useEffect } from "react";
 import { Movie } from "../movie/Movie";
 import { AddMovie } from "./AddMovie";
 import { INITIAL_MOVIES } from "../movie/INITIAL_MOVIES";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 
 export function MovieList() {
   const [moviesList, setMoviesList] = useState([]);
-
-  useEffect(() => {
+  const getMovies = () => {
     fetch("https://6a4ceefee1cf82a4a17dd0d6.mockapi.io/movies")
       .then((res) => res.json())
       .then((data) => setMoviesList(data));
-  }, []);
+  };
 
-  const deleteMovie = (id, index) => {
+  const deleteMovie = (id) => {
     console.log("deleting");
     const requestOptions = {
       method: "DELETE",
@@ -23,8 +24,13 @@ export function MovieList() {
     fetch(
       `https://6a4ceefee1cf82a4a17dd0d6.mockapi.io/movies/${id}`,
       requestOptions,
-    ).then(() => {setMoviesList(moviesList.toSpliced(index, 1))});
+    ).then(() => getMovies());
   };
+
+  useEffect(() => {
+    console.log("Mounting is done");
+    getMovies();
+  }, []);
 
   return (
     <main>
@@ -37,9 +43,18 @@ export function MovieList() {
               summary={summary}
               rating={rating}
               key={index}
-              id={index}
+              id={id}
               deleteBtn={
-                <button onClick={() => deleteMovie(id)}>Delete</button>
+
+
+
+                <IconButton
+                onClick={() => deleteMovie(id)}
+                aria-label={`delete ${name} movie`}
+                color="error"
+              >
+                <DeleteIcon />
+              </IconButton>
               }
             />
           ))}

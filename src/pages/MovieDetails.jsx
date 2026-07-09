@@ -1,14 +1,26 @@
 import { useParams } from "react-router";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router";
+import { useState ,useEffect} from "react";
 
-export function MovieDetails({ moviesList }) {
+export function MovieDetails() {
   const { id } = useParams();
-  const movie = moviesList[id];
+  const [movie, setMovie] = useState([]);
+
+
+
+  useEffect(() => {
+    fetch(`https://6a4ceefee1cf82a4a17dd0d6.mockapi.io/movies/${id}`)
+      .then((res) => res.json())
+      .then((data) => setMovie(data));
+  }, [id]);
+
+  //const movie = moviesList[id];
   const styles = {
     color: movie?.rating >= 8 ? "teal" : "crimson",
   };
   const navigate = useNavigate();
+
   return (
     <div className="movie-detail-container">
       {/* <img src={movie?.poster} alt={movie?.name} /> */}

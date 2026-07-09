@@ -38,7 +38,7 @@
 
 .movie-container {
  
-  width: 20rem;
+  width: 24rem;
   display:flex;
   flex-direction: column;
   padding:1rem;
@@ -47,6 +47,10 @@
   border-radius: 0.5rem;
   text-align: start;
   
+
+  .movie-name{
+    flex-grow: 1;
+  }
 
   img {
     width: 100%;
@@ -92,8 +96,8 @@ section{
   display: flex;
   gap:0.5rem;
   padding:1rem;
-
-
+  width:10rem;
+  flex-grow: 1;
 }
 
 .summary-toggle{
@@ -119,4 +123,10 @@ section{
   gap:1rem;
   max-width: 20rem;
   margin:0 auto;
+}
+
+
+.box{
+  display:flex;
+ 
 }
