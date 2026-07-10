@@ -88,3 +88,6 @@ Lifecycle of component
 
 ## HTML Forms
 [click here](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)
+
+## Form validation
+![alt text](image-11.png)

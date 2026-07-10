@@ -16,6 +16,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import AddIcon from '@mui/icons-material/Add';
 import { MovieDetails } from "./pages/MovieDetails";
+import { BasicForm } from "./pages/BasicForm";
 
 // Default export (only one per file)
 export default function App() {
@@ -39,7 +40,7 @@ export default function App() {
       <li> <NavLink to="/users"><span><PersonIcon/></span>User    </NavLink>    </li>
       <li><NavLink to="/color-game"><span> <SportsEsportsIcon/> </span> Color Game </NavLink> </li>
       <li><NavLink to="/movies/add"><span><AddIcon/></span>Add movie </NavLink> </li>
-      
+      <li><NavLink to="/login"><span><AddIcon/></span>login </NavLink> </li>
       </ul>
       </nav>
       </header>
@@ -55,6 +56,7 @@ export default function App() {
       <Route path="/color-game" element={<ColorGame/>} />
       <Route path="/movies/add" element={<AddMovie moviesList={moviesList} setMoviesList={setMoviesList}/>} />
       <Route path="/*" element={<NotFound/>} />
+      <Route path="/login" element={<BasicForm/>}/>
       {/* : makes it a variable */}
       <Route path="/movies/:id" element={<MovieDetails moviesList={moviesList}/>} />
       </Routes>
@@ -64,9 +66,6 @@ export default function App() {
     // JSX ends
   );
 }
-
-
-
 
 
 
