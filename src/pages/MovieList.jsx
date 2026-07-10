@@ -45,9 +45,6 @@ export function MovieList() {
               key={index}
               id={id}
               deleteBtn={
-
-
-
                 <IconButton
                 onClick={() => deleteMovie(id)}
                 aria-label={`delete ${name} movie`}

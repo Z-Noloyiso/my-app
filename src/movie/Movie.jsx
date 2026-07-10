@@ -92,7 +92,6 @@ export function Movie({ name, poster, summary, rating, id, deleteBtn }) {
         </h3>
       </div>
 
-      
 
       {/* <IconButton onClick={() => setShow(!show)}>{show? <ExpandLessIcon/> : <ExpandMoreIcon/> }</IconButton> */}
 

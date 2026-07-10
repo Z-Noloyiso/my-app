@@ -86,5 +86,5 @@ There are 2 types of components
 Lifecycle of component
 ![alt text](image-10.png)
 
-
-### Passing JSX as prop
+## HTML Forms
+[click here](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)
